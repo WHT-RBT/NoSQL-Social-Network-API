@@ -86,8 +86,8 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 > 
 > 
 <br>
-
-## Mock-Up
+ 
+## MockUp
 
 The following animation shows the POST and DELETE routes for a user’s friend list being tested in Insomnia:
 
