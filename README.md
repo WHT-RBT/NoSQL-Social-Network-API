@@ -69,16 +69,22 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Getting Started
 
-To install this project: 
-1. Start by forking this repository on Github. 
-2. Clone this project to your machine by using the "git clone + URL" command. 
-3. Open the project with your favorite text editor, like VS Code (in your terminal, first type "cd foldername" then "code ."). 
-4. Install Node.js from their website, if you have not already. Here are some additional [instructions](https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs).
-5. Install MongoDB from their website, if you have not already. Here are some additional [instructions](https://coding-boot-camp.github.io/full-stack/mongodb/how-to-install-mongodb).
-6. Install [Nodemon](https://www.npmjs.com/package/nodemon).
-7. Install [Insomnia](https://insomnia.rest/download). 
-8. This project includes a package.json file that specifies dependencies for this project, so be sure to run "npm install". This will install the packages specified in the next section. 
-
+> To use this application you first need to install all dependencies below from the command line:
+>
+>Requirements before starting:
+> - npm install
+> - npm install express 
+> - npm install moment
+> - npm install mongoose
+>
+>
+> You will then need initiate the sserver.js file by using the following command in the terminal:
+>
+> - node server.js
+> 
+>When your server is up and running, open Insomnia to view the API server that will be running on port 3001
+> 
+> 
 <br>
 
 ## Mock-Up
