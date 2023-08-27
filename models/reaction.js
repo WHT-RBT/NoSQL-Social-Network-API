@@ -1,34 +1,34 @@
-const { Schema, Types } = require('mongoose');
-const formatDate = require('../utils/format')
+const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
 const reactionSchema = new Schema(
     {
         reactionId: {
             type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId(),
+            default: () => new mongoose.Types.ObjectId(),
         },
         reactionBody: {
             type: String,
-            required: true,
-            minlength: 1,
-            maxlength: 280
+            minLength: 1,
+            maxLength: 280,
         },
         createdAt: {
             type: Date,
             default: Date.now,
-            get: (date) => formatDate(date)
         },
         username: {
             type: String,
-            required: true
+            required: true,
         },
     },
     {
         toJSON: {
-            getters: true
+            virtuals: true,
         },
-        id: false
+        id: false,
     }
-)
+);
 
-module.exports = reactionSchema;
+const Reaction = model('Reaction', reactionSchema); 
+
+module.exports = Reaction; // Export the Reaction model

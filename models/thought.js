@@ -1,45 +1,68 @@
 const { Schema, model } = require('mongoose');
-const reaction = require('./reaction');
-const formatDate = require('../utils/format.js')
+var mongoose = require('mongoose');
 
-// schema to create the thought model
-const thoughtSchema = new Schema(
+const reactionSchema = new Schema(
     {
-        thoughtText: {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new mongoose.Types.ObjectId(),
+        },
+        reactionBody: {
             type: String,
-            required: true,
-            minlength: 1,
-            maxlength: 280
+            minLength: 1,
+            maxLength: 280,
         },
         createdAt: {
             type: Date,
             default: Date.now,
-            get: (date) => formatDate(date)
         },
         username: {
             type: String,
-            required: true
+            required: true,
         },
-        reactions: [reaction],
     },
     {
         toJSON: {
             virtuals: true,
-            getters: true,
+        },
+        id: false,
+    }
+);
+// schema to create post model
+const thoughtsSchema = new Schema(
+    {
+        thoughtText: {
+            type: String,
+            required: true,
+            minLength: 1,
+            maxLength: 280,
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+        },
+        userId:
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'user',
+        },
+        reactions: [reactionSchema],
+    },
+    {
+        toJSON: {
+            virtuals: true,
         },
         id: false,
     }
 );
 
-// virtual property `reactionCount` that gets number of reactions
-thoughtSchema
+thoughtsSchema
     .virtual('reactionCount')
     .get(function () {
         return this.reactions.length;
-    })
+    });
 
-// initializes thought model
-const thought = model('thought', thoughtSchema);
+// initialize our thoughts model
+const Thoughts = model('thought', thoughtsSchema);
 
-console.log(formatDate("2022-05-24T01:31:56.774Z"))
-module.exports = thought;
+module.exports = Thoughts;

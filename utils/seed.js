@@ -41,15 +41,22 @@ const users = [
 
 ]
 
-connection.on('error', (err) => err);
+connection.on('error', (err) => {
+    console.error('Database connection error❌❌❌:', err);
+});
 
 connection.once('open', async () => {
-    console.log('connected');
-    await thought.deleteMany({});
-    await user.deleteMany({});
+    try {
+        console.log('connected');
+        await thought.deleteMany({});
+        await user.deleteMany({});
 
-    await user.collection.insertMany(users);
+        await user.collection.insertMany(users);
 
-    console.info('Seeding complete!');
-    process.exit(0);
+        console.info('Seeding complete!🌱🌱🌱');
+        process.exit(0); // Success exit code
+    } catch (error) {
+        console.error('Seeding error🥀🥀🥀:', error);
+        process.exit(1); // Error exit code
+    }
 });
