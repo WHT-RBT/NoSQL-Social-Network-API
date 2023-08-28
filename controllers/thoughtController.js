@@ -56,7 +56,7 @@ module.exports = {
                     console.log(`Updated: ${result}`);
                 } else {
                     console.log(err);
-                    res.status(500).json({ message: 'Error!❌❌❌', err });
+                    res.status(500).json({ message: 'Error!❌', err });
                 }
             }
         )
@@ -76,7 +76,7 @@ module.exports = {
             .then((user) =>
                 !user
                     ? res.status(404).json({
-                        message: 'Error deleting thought',
+                        message: 'Error deleting thought ❌',
                     })
                     : res.json({ message: 'Thought successfully deleted!💭💭💭' })
             )
@@ -92,7 +92,7 @@ module.exports = {
             .then((thought) =>
                 !thought
                     ? res.status(404).json({ message: 'There is no thought with this ID!💭💭💭' })
-                    : res.json(`Reaction added!`)
+                    : res.json(`Reaction added!🎉🎉🎉`)
             )
             .catch((err) => res.status(500).json(err));
     },
@@ -106,7 +106,7 @@ module.exports = {
             .then((thought) =>
                 !thought
                     ? res.status(404).json({ message: 'There is no thought with this ID!💭💭💭' })
-                    : res.json(`Reaction deleted!`)
+                    : res.json(`Reaction deleted!🎉🎉🎉`)
             )
             .catch((err) => res.status(500).json(err));
     },
