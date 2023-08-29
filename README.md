@@ -112,7 +112,7 @@ In addition to this, your walkthrough video should show the POST, PUT, and DELET
 
 ## Links
 
-GitHub Repo Link:   <a href="https://github.com/WHT-RBT/MVC-Tech-Blog.git">GitHub Repo </a>
+GitHub Repo Link:   <a href="https://github.com/WHT-RBT/NoSQL-Social-Network-API.git">GitHub NoSQL Repo </a>
 
 GitHub Profile Link: <a href="https://github.com/WHT-RBT"> GitHub Profile </a>
 
